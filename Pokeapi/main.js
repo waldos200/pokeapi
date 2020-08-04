@@ -35,10 +35,13 @@ const makePokemon = (pokeData) => {
     let pokeNumber = document.createElement('p');
     pokeNumber.innerHTML = '#' + pokeData.id;
 
-    // let pokeType = document.createElement('ul');
-    // pokeType.innerHTML = pokeData.
+    let imgFront = document.createElement('img');
+    imgFront.src = pokeData.sprites.front_default;
 
-    pokeContainer.append(pokeName, pokeNumber);
+    let imgBack = document.createElement('img');
+    imgBack.src = pokeData.sprites.back_default;
+
+    pokeContainer.append(pokeName, pokeNumber, imgFront, imgBack);
 
     allPokemonContainer.appendChild(pokeContainer);
 };
