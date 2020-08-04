@@ -3,6 +3,7 @@
 
 const url = 'https://pokeapi.co/api/v2/pokemon?Limit=10';
 let generateBtn = document.getElementById('generate-pokemon');
+let allPokemonContainer = document.getElementById('poke-container');
 
 const fetchPokemons = () => {
     fetch(url)
@@ -21,7 +22,25 @@ const fetchPokemonData = (pokemon) => {
     .then(response => response.json())
     .then((pokeData) => {
         console.log(pokeData);
+        makePokemon(pokeData);
     });
+};
+
+const makePokemon = (pokeData) => {
+    let pokeContainer = document.createElement('div');
+
+    let pokeName = document.createElement('h4');
+    pokeName.innerHTML = pokeData.name;
+
+    let pokeNumber = document.createElement('p');
+    pokeNumber.innerHTML = '#' + pokeData.id;
+
+    // let pokeType = document.createElement('ul');
+    // pokeType.innerHTML = pokeData.
+
+    pokeContainer.append(pokeName, pokeNumber);
+
+    allPokemonContainer.appendChild(pokeContainer);
 };
 
 const makeEverything = () => {
