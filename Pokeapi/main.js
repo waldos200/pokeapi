@@ -1,7 +1,7 @@
 
 // https://pokeapi.co/api/v2/pokemon/132/
 
-const url = 'https://pokeapi.co/api/v2/pokemon?limit=10';
+const url = 'https://pokeapi.co/api/v2/pokemon?limit=20';
 let generateBtn = document.getElementById('generate-pokemon');
 let allPokemonContainer = document.getElementById('poke-container');
 
@@ -28,6 +28,7 @@ const fetchPokemonData = (pokemon) => {
 
 const makePokemon = (pokeData) => {
     let pokeContainer = document.createElement('div');
+    pokeContainer.classList.add('poke-container');
 
     let pokeName = document.createElement('h4');
     pokeName.innerHTML = pokeData.name;
