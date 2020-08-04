@@ -1,14 +1,14 @@
 
 // https://pokeapi.co/api/v2/pokemon/132/
 
-const url = 'https://pokeapi.co/api/v2/pokemon?Limit=10';
+const url = 'https://pokeapi.co/api/v2/pokemon?limit=10';
 let generateBtn = document.getElementById('generate-pokemon');
 let allPokemonContainer = document.getElementById('poke-container');
 
 const fetchPokemons = () => {
     fetch(url)
     .then(response => response.json())
-    .then((allPokemon) =>{
+    .then((allPokemon)=> {
         // console.log(allPokemon);
         allPokemon.results.forEach(pokemon => {
             fetchPokemonData(pokemon);
