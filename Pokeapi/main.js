@@ -30,19 +30,25 @@ const makePokemon = (pokeData) => {
     let pokeContainer = document.createElement('div');
     pokeContainer.classList.add('poke-container');
 
+    let pokeContainerIMG = document.createElement('div');
+    pokeContainerIMG.classList.add('img-poke');
+
     let pokeName = document.createElement('h4');
-    pokeName.innerHTML = pokeData.name;
+    pokeName.innerHTML = pokeData.name.toUpperCase();
 
     let pokeNumber = document.createElement('p');
     pokeNumber.innerHTML = '#' + pokeData.id;
 
     let imgFront = document.createElement('img');
     imgFront.src = pokeData.sprites.front_default;
+    imgFront.classList.add('zoom-img');
 
     let imgBack = document.createElement('img');
     imgBack.src = pokeData.sprites.back_default;
+    imgBack.classList.add('zoom-img');
 
-    pokeContainer.append(pokeName, pokeNumber, imgFront, imgBack);
+    pokeContainerIMG.append(imgFront, imgBack)
+    pokeContainer.append(pokeName, pokeNumber, pokeContainerIMG);
 
     allPokemonContainer.appendChild(pokeContainer);
 };
